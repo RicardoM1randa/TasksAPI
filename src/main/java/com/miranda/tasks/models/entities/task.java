@@ -11,17 +11,17 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
-@Entity
-@AllArgsConstructor
+@Data // create getters and setters
+@Entity // indicates that it is an entity of the database
+@AllArgsConstructor // creates a constructor with all attributes
 public class task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID code_task;
-    private String name;
-    private String description;
-    private String status;
-    @ManyToOne
-    @JoinColumn(name = "code_user")
-    private user user;
+    @Id // Indica que es la llave primaria
+    @GeneratedValue(strategy = GenerationType.AUTO) 
+    private UUID code_task; // attribute of the table
+    private String name; 
+    private String description; 
+    private boolean status;
+    @ManyToOne // relation many to one in the database
+    @JoinColumn(name = "code_user") // name of the column in the database
+    private user user; 
 }
